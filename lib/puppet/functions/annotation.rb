@@ -5,6 +5,6 @@ Puppet::Functions.create_function(:annotation, Puppet::Functions::InternalFuncti
   end
 
   def annotation(scope, string)
-    scope.resource[:annotation] = string
+    scope.resource[:annotation] ||= string 
   end
 end

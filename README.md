@@ -21,17 +21,19 @@ notify { 'example':
 }
 ```
 
-To annotate classes, either declare them resource-style, or use the `annotation()` function. Note that the two methods of annotating are exclusive.
+To annotate classes, either declare them resource-style, or use the `annotation()` function. Note that the two methods of annotating are mutually exclusive.
 
 ```puppet
 class example {
-  annotation('this is an annotation declared IN the example class')
+  annotation('This is an annotation declared IN the example class')
 }
 ```
 
+An annotation set in a resource-style class parameter declaration will override the annotation set using `annotation()` inside the class.
+
 ```puppet
 class { 'example':
-  annotation => 'this is an annotation on the example class',
+  annotation => 'This annotation will override the other one',
 }
 ```
 

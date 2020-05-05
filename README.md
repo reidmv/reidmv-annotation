@@ -19,6 +19,16 @@ notify { 'example':
   message    => 'this is a notify resource',
   annotation => 'this is an annotation for it',
 }
+
+file { '/tmp/example.conf':
+  ensure     => file,
+  owner      => 'root',
+  annotation => {
+    'description' => 'Annotations don't need to be strings',
+    'product'     => 'Example Product',
+    'owner'       => 'Kelly',
+  },
+}
 ```
 
 To annotate classes, either declare them resource-style, or use the `annotation()` function. Note that the two methods of annotating are mutually exclusive.

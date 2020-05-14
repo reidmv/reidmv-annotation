@@ -24,7 +24,7 @@ file { '/tmp/example.conf':
   ensure     => file,
   owner      => 'root',
   annotation => {
-    'description' => 'Annotations don't need to be strings',
+    'description' => 'Annotations do not need to be strings',
     'product'     => 'Example Product',
     'owner'       => 'Kelly',
   },

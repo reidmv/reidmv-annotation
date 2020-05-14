@@ -7,9 +7,9 @@ Puppet::Functions.create_function(:'annotation::internal::load_annotation_metapa
   def load
     unless Puppet::Type.metaparam?(:annotation)
       Puppet::Type.newmetaparam(:annotation) do
-         desc "A user-supplied annotation about this resource. The annotation
-           is non-operative, but will be visible in the node's catalog and can
-           be queried for reporting purposes."
+        desc "A user-supplied annotation about this resource. The annotation
+          is non-operative, but will be visible in the node's catalog and can
+          be queried for reporting purposes."
       end
     end
 

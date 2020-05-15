@@ -1,56 +1,56 @@
-# annotation
+# metadata
 
 ## Description
 
-This module adds an extra Puppet metaparameter for the purpose of recording high-level or human-readable annotations about what classes or resources are for. This information can be used to automatically generate human-readable reports either of what work Puppet has performed on a system or of all the content Puppet is managing on a system, and why.
+This module adds an extra Puppet metaparameter for the purpose of recording high-level or human-readable metadata about what classes or resources are for. This information can be used to automatically generate human-readable reports either of what work Puppet has performed on a system or of all the content Puppet is managing on a system, and why.
 
 ## Usage
 
-Put this in site.pp to enable annotation
+Put this in site.pp to enable metadata
 
 ```puppet
-annotation::enable()
+metadata::enable()
 ```
 
-Use the `annotation` metaparameter as needed on resources
+Use the `metadata` metaparameter as needed on resources
 
 ```puppet
 notify { 'example':
-  message    => 'this is a notify resource',
-  annotation => 'this is an annotation for it',
+  message  => 'this is a notify resource',
+  metadata => 'this is metadata about it',
 }
 
 file { '/tmp/example.conf':
   ensure     => file,
   owner      => 'root',
-  annotation => {
-    'description' => 'Annotations do not need to be strings',
+  metadata => {
+    'description' => 'Metadata does not need to be a string',
     'product'     => 'Example Product',
     'owner'       => 'Kelly',
   },
 }
 ```
 
-To annotate classes, either declare them resource-style, or use the `annotation()` function. Note that the two methods of annotating are mutually exclusive.
+To set metadata for classes, either declare them resource-style, or use the `metadata()` function. Note that the two methods of annotating are mutually exclusive.
 
 ```puppet
 class example {
-  annotation('This is an annotation declared IN the example class')
+  metadata('This is an metadata declared IN the example class')
 }
 ```
 
-An annotation set in a resource-style class parameter declaration will override the annotation set using `annotation()` inside the class.
+Metadata set in a resource-style class parameter declaration will override the metadata set using `metadata()` inside the class.
 
 ```puppet
 class { 'example':
-  annotation => 'This annotation will override the other one',
+  metadata => 'This metadata will override the other one',
 }
 ```
 
 ## Querying
 
-To query for all annotated resources on a node, use a PuppetDB PQL query such as the following.
+Metadata is a resource parameter, and all normal query operators for parameters apply. To query for all resources with metadata on a node, use a PuppetDB PQL query such as the following.
 
 ```
-resources { certname = "example.node.tld" and parameters.annotation is not null }
+resources { certname = "example.node.tld" and parameters.metadata is not null }
 ```

@@ -1,12 +1,12 @@
 {
-  "name": "reidmv-annotation",
+  "name": "reidmv-metadata",
   "version": "0.1.1",
   "author": "Reid Vandewiele",
-  "summary": "Add annotation metaparameter to document purpose, owner, or other metadata elements of any resource.",
+  "summary": "Add metadata metaparameter to document purpose, owner, or other metadata elements of any resource.",
   "license": "Apache-2.0",
-  "source": "https://github.com/reidmv/reidmv-annotation.git",
-  "project_page": "https://github.com/reidmv/reidmv-annotation",
-  "issues_url": "https://github.com/reidmv/reidmv-annotation/issues",
+  "source": "https://github.com/reidmv/reidmv-metadata.git",
+  "project_page": "https://github.com/reidmv/reidmv-metadata",
+  "issues_url": "https://github.com/reidmv/reidmv-metadata/issues",
   "dependencies": [
 
   ],
